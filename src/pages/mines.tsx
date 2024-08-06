@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import defaultt from "@/assets/default.png";
-import diamond from "@/assets/diamond.png";
+import diamond from "@/assets/diamondd.png";
 import explosion from "@/assets/explosion.png";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { NavLink } from "react-router-dom";
 
 export function Mines() {
   useEffect(() => {
@@ -41,9 +43,15 @@ export function Mines() {
   }, []);
 
   return (
-    <div className="mx-auto bg-red-500 w-[360px] p-3">
-      <h1 className="text-white">mines</h1>
-      <div className="grid grid-cols-4 gap-1">
+    <div className="mx-auto w-[360px] pt-4">
+      <NavLink to="/">
+        <div>
+          <div className="bg-pennblue w-8 h-8 flex items-center justify-center rounded-full mb-2">
+            <ArrowLeftIcon className="text-muted-foreground w-5 h-5"/>
+          </div>
+        </div>
+      </NavLink>
+      <div className="grid grid-cols-4 gap-3">
         <img src={defaultt} className="w-20 cursor-pointer dr" />
         <img src={defaultt} className="w-20 cursor-pointer dr" />
         <img src={defaultt} className="w-20 cursor-pointer dr" />
