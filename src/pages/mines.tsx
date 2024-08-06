@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import defaultt from "@/assets/default.png";
 import diamond from "@/assets/diamond.png";
 import explosion from "@/assets/explosion.png";
-import { Button } from "@/components/ui/button";
 
 export function Mines() {
   useEffect(() => {
@@ -10,22 +9,22 @@ export function Mines() {
 
     const resetGame = () => {
       draw.forEach((el) => {
-        el.src = defaultt
-        el.style.pointerEvents = "auto"
+        (el as HTMLImageElement).src = defaultt;
+        (el as HTMLElement).style.pointerEvents = "auto"
       });
     };
 
     draw.forEach((ob) => {
       ob.addEventListener("click", (evt) => {
-        const el = evt.target;
-        let DrawNumber = Math.floor(Math.random() * 10 + 1)
-        let WinNumber = Math.floor(Math.random() * 10)
-        if(DrawNumber >= WinNumber){
+        const el = evt.target as HTMLImageElement;
+        let DrawNumber = Math.floor(Math.random() * 10 + 1);
+        let WinNumber = Math.floor(Math.random() * 10);
+        if (DrawNumber >= WinNumber) {
           el.src = diamond
         }else{
           el.src = explosion
           draw.forEach((el) => {
-            el.style.pointerEvents = "none"
+            (el as HTMLElement).style.pointerEvents = "none"
           });
           setTimeout(() => {
             resetGame()
